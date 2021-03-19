@@ -39,7 +39,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void updateQuestion() {
         if(mQuestionNumber < mQuestionLibrary.getLength()) {
-            mQuestionView.setText((mQuestionLibrary.getChoice(mQuestionNumber)));
+            mQuestionView.setText(mQuestionLibrary.getChoice(mQuestionNumber));
             mButtonChoice1.setText(mQuestionLibrary.getChoice(mQuestionNumber, 1));
             mButtonChoice2.setText(mQuestionLibrary.getChoice(mQuestionNumber, 2));
             mButtonChoice3.setText(mQuestionLibrary.getChoice(mQuestionNumber, 3));
@@ -58,7 +58,16 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        
+        Button answer = (Button) view;
+
+        if(answer.getText() == mAnswer) {
+            mScore = mScore + 1;
+            Toast.makeText( QuizActivity.this, "Benar!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText( QuizActivity.this, "Salah!", Toast.LENGTH_SHORT).show();
+        }
+        updateScore(mScore);
+        updateQuestion();
     }
 
 }
