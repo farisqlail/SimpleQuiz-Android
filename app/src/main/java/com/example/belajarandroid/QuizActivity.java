@@ -28,10 +28,10 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mScoreView = (TextView)findViewById(R.id.score);
-        mQuestionView = (TextView)findViewById(R.id.question);
-        mButtonChoice1 = (Button)findViewById((R.id.choice1);
-        mButtonChoice2 = (Button)findViewById((R.id.choice2);
-        mButtonChoice3 = (Button)findViewById((R.id.choice3);
+        mQuestionView = (TextView)findViewById((R.id.question));
+        mButtonChoice1 = (Button)findViewById((R.id.choice1));
+        mButtonChoice2 = (Button)findViewById((R.id.choice2));
+        mButtonChoice3 = (Button)findViewById((R.id.choice3));
         updateQuestion();
 
         updateScore(mScore);
@@ -39,7 +39,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void updateQuestion() {
         if(mQuestionNumber < mQuestionLibrary.getLength()) {
-            mQuestionView.setText(mQuestionLibrary.getChoice(mQuestionNumber));
+            mQuestionView.setText(mQuestionLibrary.getQuestion(mQuestionNumber));
             mButtonChoice1.setText(mQuestionLibrary.getChoice(mQuestionNumber, 1));
             mButtonChoice2.setText(mQuestionLibrary.getChoice(mQuestionNumber, 2));
             mButtonChoice3.setText(mQuestionLibrary.getChoice(mQuestionNumber, 3));
